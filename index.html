@@ -2,10 +2,21 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>Hello Static Web Apps</title>
+  <title>SWA Test</title>
 </head>
 <body>
-  <h1>Hello Static Web Apps</h1>
-  <p>これは HTML だけで動作する Azure Static Web Apps のテストページです。</p>
+  <h1>Static Web Apps Test</h1>
+
+  <button onclick="callApi()">APIを呼ぶ</button>
+
+  <p id="result">ここに結果が表示されます</p>
+
+  <script>
+    async function callApi() {
+      const res = await fetch('/api/hello');
+      const text = await res.text();
+      document.getElementById('result').innerText = text;
+    }
+  </script>
 </body>
 </html>
